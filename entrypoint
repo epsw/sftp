@@ -103,10 +103,11 @@ function createUser() {
             if [ ! -d "$dirPath" ]; then
                 log "Creating directory: $dirPath"
                 mkdir -p $dirPath
-                chown -R $uid:users $dirPath
             else
                 log "Directory already exists: $dirPath"
             fi
+            log "Change the ownership of $dirPath for $uid:users"
+            chown -R $uid:users $dirPath
         done
     fi
 }
